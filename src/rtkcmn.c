@@ -3281,7 +3281,10 @@ extern int reppath(const char *path, char *rpath, gtime_t time, const char *rov,
     double ep[6],ep0[6]={2000,1,1,0,0,0};
     int week,dow,doy,stat=0;
     char rep[64];
-    
+
+    if(!rpath || !path)
+      return 0;
+
     strcpy(rpath,path);
     
     if (!strstr(rpath,"%")) return 0;
